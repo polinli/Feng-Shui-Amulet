@@ -18,6 +18,9 @@ from PIL import Image, ImageTk
 mixer.init()
 mixer.music.load('goodPlace.mp3')
 
+#serial read
+ser=serial.Serial(" COM11", 9600)
+s = ser.read()
 
 # In[2]:
 
@@ -139,7 +142,7 @@ plt.show()
 print("score:")
 print(mountain_score)
 
-total_score = mountain_score
+total_score = mountain_score + s
 if total_score > 7:
     mixer.music.play()
     goodplace = cv2.imread('ogoodplace.jpg')
